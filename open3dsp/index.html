@@ -40,6 +40,115 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
+
+<style>
+  .section {
+  margin-bottom: -30px; /* Adjust this value as needed to reduce the space */
+}
+.expandable-card .card-text-container {
+  max-height: 200px;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.expandable-card.expanded .card-text-container {
+  max-height: none;
+}
+
+.expand-btn {
+  position: relative;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* margin-top: -20px; */
+  /* justify-content: center; */
+  color: #510c75;
+  border-color: transparent;
+}
+
+.expand-btn:hover {
+  background-color: rgba(200, 200, 200, 0.8);
+  text-decoration: none;
+  border-color: transparent;
+  color: #510c75;
+}
+
+.expand-btn:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.expandable-card:not(.expanded) .card-text-container:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
+}
+
+.expandable-card:not(.expanded) .expand-btn {
+  margin-top: -40px;
+}
+
+.card-body {
+  padding-bottom: 5px;
+}
+
+.vertical-flex-layout {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.figure-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.adjustable-font-size {
+  font-size: calc(0.5rem + 2vw);
+}
+
+.chat-history {
+  flex-grow: 1;
+  overflow-y: auto;
+  /* overflow-x: hidden; */
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+#gradio pre {
+  background-color: transparent;
+}
+
+/* 使用渐变颜色实现彩虹字体 */
+.rainbow-text {
+  background: linear-gradient(to right, rgba(211, 242, 248, 1), rgba(246, 214, 214, 1));
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  font-weight: bold;
+}
+
+
+  .video-container {
+display: flex;
+}
+
+.video-wrapper {
+flex: 1;
+margin: 10px;
+}
+
+.video-wrapper video {
+width: 100%;
+}
+</style>
 <body>
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -177,7 +286,7 @@
   <div class="container is-max-desktop">
     <p style="text-align:center;">
       <!-- Hero diagram -->
-      <img src="./static/images/illustration.png" class="img-responsive" />
+      <img src="./static/images/illustration.png" class="img-responsive" style="width: 100px; height: auto;" />
       <!--/ Hero diagram -->
     </p>
   </div>
@@ -386,55 +495,8 @@
         <!--/ Utilization. -->
 
 
-        <!-- Experiment. -->
-        <h3 class="title is-4">Experiment </h3>
-        <div class="content has-text-justified">
-          <p>
-          Utilization of Open3DSP for Scene Understanding.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-centered has-text-centered">
-            <p>
-              We further delve into the utilization of Open3DSP for 3D scene understanding and instance identification from different query perspectives to demonstrate its utility. These queries allow for a diverse analysis of the various elements and their functions.
-            </p>
-            <img src="./static/images/query.png"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-          </div>
-          <!-- <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div> -->
-          <div class="column is-centered has-text-centered">
-          <!-- <div class="column is-3 has-text-centered"> -->
-            <p>
-              We also generate the corresponding scene instance with Open3DSP for the agent, and therefore constitute the environmental foundation for further task planning.
-            </p>
-            <img src="./static/images/bowl.png"
-                 class="interpolation-image"
-                 alt="Interpolation start reference image."/>
-            <img src="./static/images/tomato.png"
-                 class="interpolation-image"
-                 alt="Interpolation start reference image."/>
-          </div>
-        </div>
-        <br/>
-        <!--/ Experiment. -->
-
-
-
-
-
-
-
-
         <!-- Re-rendering. -->
-        <h3 class="title is-4">Video</h3>
+        <!-- <h3 class="title is-4">Video</h3>
         <div class="content has-text-justified">
           <p>
             Using <span class="dnerf">EN-LLM</span>, robots can explore the environment with lauguage model.
@@ -450,8 +512,105 @@
             <source src="./static/videos/video_compress.mp4"
                     type="video/mp4">
           </video>
-        </div>
+        </div> -->
         <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+    <!-- Experiment. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Experiment</h2>
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">Utilization of Open3DSP for Scene Understanding</h3>
+        <div class="content has-text-justified">
+          <p>
+            We further delve into the utilization of Open3DSP for 3D scene understanding and instance identification from different query perspectives to demonstrate its utility. These queries allow for a diverse analysis of the various elements and their functions.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-centered has-text-centered">
+            <img src="./static/images/query.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          </div>
+          <!-- <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="100" value="0" type="range">
+          </div> -->
+          <!-- <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_end.jpg"
+                 class="interpolation-image"
+                 alt="Interpolation end reference image."/>
+            <p class="is-bold">End Frame</p>
+          </div> -->
+        </div>
+        <br/>
+        <!--/ Interpolating. -->
+
+
+        <!-- Utilization. -->
+        <h3 class="title is-4">Utilization of Open3DSP for Task Planning </h3>
+        <div class="content has-text-justified">
+          <p>
+            We also generate the corresponding scene instance with Open3DSP for the agent, and therefore constitute the environmental foundation for further task planning.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-centered has-text-centered">
+            <p>
+              Task planning for "Pick up a bowl and turn a lamp on". It illustrates a simple pick-up task execution process, figure (a) shows a successful task case, as it can infer execution steps accordingly, while figure (b) depicts an attempt using the OPT-1.3b model, which fails to complete the task.
+            </p>
+            <img src="./static/images/bowl.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-centered has-text-centered">
+            <p>
+              Task planning for "Put a heated tomato in the fridge". It requires the agent to find a tomato, heat it in a microwave, and then place it into a specified object. The figure (a) illustrates a successful task planning case, while in figure (b) and figure (c), it doesn't plan out the correct steps due to weaker model. It also shows that our Open3DSP can provide an environmental foundation for task planning.
+            </p>
+            <img src="./static/images/tomato.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <br/>
+        <!--/ Utilization. -->
+
+
+
+
+
+        <!-- 本地视频 -->
+        <!-- Re-rendering. -->
+        <!-- <h3 class="title is-4">Video</h3>
+        <div class="content has-text-justified">
+          <p>
+            Using <span class="dnerf">EN-LLM</span>, robots can explore the environment with lauguage model.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/video_compress.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+        <!--/ Re-rendering. -->
+        <!--/ 本地视频 -->
 
       </div>
     </div>

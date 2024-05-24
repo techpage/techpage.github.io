@@ -6,7 +6,7 @@
         content="Facilitating Robotic Task Planning with Open-Vocabulary 3D Scene Perception and Generation.">
   <meta name="keywords" content="LLM, Robot">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EN-LLM</title>
+  <title>Open3DSP</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -128,7 +128,7 @@
 
 /* 使用渐变颜色实现彩虹字体 */
 .rainbow-text {
-  background: linear-gradient(to right, rgb(242, 88, 201), rgb(18, 227, 250));
+  background: linear-gradient(to right, rgb(255, 53, 201), rgb(18, 227, 250));
   -webkit-background-clip: text;
   color: transparent;
   display: inline-block;
@@ -286,7 +286,7 @@ width: 100%;
   <div class="container is-max-desktop">
     <p style="text-align:center;">
       <!-- Hero diagram -->
-      <img src="./static/images/illustration.png" class="img-responsive" style="width: 300px; height: auto;" />
+      <img src="./static/images/illustration.png" class="img-responsive" style="width: 400px; height: auto;" />
       <!--/ Hero diagram -->
     </p>
   </div>
@@ -372,16 +372,16 @@ width: 100%;
     <!--/ Abstract. -->
 
 <!-- youtube链接 -->
-    <!-- <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
+        <h2 class="title is-3">📹 Youtube Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/9bkb7ZoAaUQ?rel=0&amp;showinfo=0"
+          <iframe src="https://www.youtube.com/embed/7cT9FhE-9uw?rel=0&amp;showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </section>
 
 
@@ -431,7 +431,7 @@ width: 100%;
         <h2 class="title is-3">🎨 Approach</h2>
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">System Overview</h3>
+        <h3 class="title is-4">📖 System Overview</h3>
         <div class="content has-text-justified">
           <p>
             We introduce the Open3DSP framework, a novel open-vocabulary 3D scene perception and generation model designed to enhance robotic task planning. This framework integrates pre-trained visual language models, enabling robust and versatile scene understanding in a zero-shot learning setup. In addition, the generated representation of the 3D scene can further provide spatial and environmental details that help in task execution.
@@ -462,23 +462,23 @@ width: 100%;
         <!--/ Interpolating. -->
 
         <!-- Contribution. -->
-        <h3 class="title is-4">Contribution</h3>
+        <h3 class="title is-4">📖 Contribution</h3>
         <div class="content has-text-justified">
           <p>
-            💫 Utilization of perceived information in 3D scene understanding for robot task planning:  we propose Open3DSP, a pipeline for open-vocabulary 3D scene generation with pre-trained language model that enable further task-specific action.
+            💫 Utilization of perceived information in 3D scene generation for robot task planning:  we propose Open3DSP, a framework for open-vocabulary 3D scene perception and generation with pre-trained language model that enable further task-specific action.
           </p>
           <p>
-            💫 Open3DSP leverages the common-sense knowledge embedded in large language models to handle complex queries and inferential tasks within 3D environments, and enables the robot to operate effectively in unstructured environments.
+            💫 Open3DSP leverages the common-sense knowledge embedded in large language models and detection labels to refine instance feature, and further validates the effectiveness in 3D scene generation.
           </p>
           <p>
-            💫 We conduct the experiment thoroughly to validate the effectiveness our framework, and it shows versatility in 3D scene construction and application.
+            💫 We introduce a pipeline to handle inferential tasks within 3D scene, and enable the robot to operate in unstructured environments, it also shows versatility in 3D scene construction and application.
           </p>
         </div>
         <br/>
         <!--/ Contribution. -->
 
         <!-- Utilization. -->
-        <h3 class="title is-4">Scene Generation for Utilization </h3>
+        <h3 class="title is-4">📖 Scene Generation for Utilization </h3>
         <div class="content has-text-justified">
           <p>
             3D scene processing and utilization for instance generation and task planning. From capturing input images to integrating instance information for practical task planning, it illustrates a workflow to interpret and respond to scene interaction.
@@ -525,7 +525,7 @@ width: 100%;
         <h2 class="title is-3">🔍 Experiment</h2>
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Open3DSP for Scene Understanding</h3>
+        <h3 class="title is-4">📖 Open3DSP for Open-vocabulary 3D Scene Understanding</h3>
         <div class="content has-text-justified">
           <p>
             We further delve into the utilization of Open3DSP for 3D scene understanding and instance identification from different query perspectives to demonstrate its utility. These queries allow for a diverse analysis of the various elements and their functions.
@@ -557,7 +557,7 @@ width: 100%;
 
 
         <!-- Utilization. -->
-        <h3 class="title is-4">Open3DSP for Task Planning </h3>
+        <h3 class="title is-4">📖 3D Scene Generation for Task Planning </h3>
         <div class="content has-text-justified">
           <p>
             We also generate the corresponding scene instance with Open3DSP for the agent, and therefore constitute the environmental foundation for further task planning.
@@ -566,7 +566,7 @@ width: 100%;
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-centered has-text-centered">
             <p>
-              Task planning for "Pick up a bowl and turn a lamp on". It illustrates a simple pick-up task execution process, figure (a) shows a successful task case, as it can infer execution steps accordingly, while figure (b) depicts an attempt using the OPT-1.3b model, which fails to complete the task.
+              🏷️ Task planning for "Pick up a bowl and turn a lamp on". It illustrates a simple pick-up task execution process, figure (a) shows a successful task case, as it can infer execution steps accordingly, while figure (b) depicts an attempt using the OPT-1.3b model, which fails to complete the task.
             </p>
             <img src="./static/images/bowl.png"
                  class="interpolation-image"
@@ -576,9 +576,57 @@ width: 100%;
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-centered has-text-centered">
             <p>
-              Task planning for "Put a heated tomato in the fridge". It requires the agent to find a tomato, heat it in a microwave, and then place it into a specified object. The figure (a) illustrates a successful task planning case, while in figure (b) and figure (c), it doesn't plan out the correct steps due to weaker model. It also shows that our Open3DSP can provide an environmental foundation for task planning.
+              🏷️ Task planning for "Put a heated tomato in the fridge". It requires the agent to find a tomato, heat it in a microwave, and then place it into a specified object. The figure (a) illustrates a successful task planning case, while in figure (b) and figure (c), it doesn't plan out the correct steps due to weaker model. It also shows that our Open3DSP can provide an environmental foundation for task planning.
             </p>
             <img src="./static/images/tomato.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <div>
+          <p>
+            📂 === More examples can be found as follows ===:
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-centered has-text-centered">
+            <p>
+              🏷️ Task planning for "Place a vase on a coffee table". The figure (a) illustrates a successful task planning case, 
+              while figure (b) depicts an attempt using the OPT-1.3b model, which fails to complete the task. figure (c) also shows a successful case with a smaller detection model.
+            </p>
+            <img src="./static/images/vase.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-centered has-text-centered">
+            <p>
+              🏷️ Task planning for "Place a rinsed plated in the fridge". The figure (a) illustrates a successful task planning case, while in figure (b) and figure (c), it doesn't plan out the correct steps due to weaker model. It also shows that our Open3DSP can provide an environmental foundation for task planning.
+            </p>
+            <img src="./static/images/plate.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-centered has-text-centered">
+            <p>
+              🏷️ Task planning for "Pick up a laptop and turn on a lamp". The figure (a) illustrates a successful task planning case, 
+              while figure (b) depicts an attempt using the OPT-1.3b model, which fails to complete the task. figure (c) also shows a successful case with a smaller detection model.
+            </p>
+            <img src="./static/images/laptop.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-centered has-text-centered">
+            <p>
+              🏷️ Task planning for "Put a box of tissues on top of the toilet". The figure (a) illustrates a successful task planning case, 
+              while figure (b) depicts an attempt using the OPT-1.3b model, which fails to complete the task. figure (c) also shows a successful case with a smaller detection model.
+            </p>
+            <img src="./static/images/tissue.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
           </div>
@@ -592,10 +640,10 @@ width: 100%;
 
         <!-- 本地视频 -->
         <!-- Re-rendering. -->
-        <!-- <h3 class="title is-4">Video</h3>
+        <h3 class="title is-4">📽️ Video</h3>
         <div class="content has-text-justified">
           <p>
-            Using <span class="dnerf">EN-LLM</span>, robots can explore the environment with lauguage model.
+            Using <span class="dnerf">Open3DSP</span>Perception for Robotic Task Planning.
           </p>
         </div>
         <div class="content has-text-centered">
@@ -608,7 +656,7 @@ width: 100%;
             <source src="./static/videos/video_compress.mp4"
                     type="video/mp4">
           </video>
-        </div> -->
+        </div>
         <!--/ Re-rendering. -->
         <!--/ 本地视频 -->
 

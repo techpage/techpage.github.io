@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Facilitating Robotic Task Planning with Open-Vocabulary 3D Scene Perception.">
+        content="A Perception-Planning-Co-Design Framework to Facilitate Robot Task Planning with Open-Vocabulary 3D Scene.">
   <meta name="keywords" content="LLM, Robot">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open3DSP</title>
+  <title>3DS-Plan</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -197,8 +197,8 @@ width: 100%;
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><span class="rainbow-text">Open3DSP</span><sup></sup>:
-            Facilitating Robotic Task Planning with Open-Vocabulary 3D Scene Perception</h1>
+          <h1 class="title is-1 publication-title"><span class="rainbow-text">3DS-Plan</span><sup></sup>:
+            A Perception-Planning-Co-Design Framework to Facilitate Robot Task Planning with Open-Vocabulary 3D Scene</h1>
           <div class="is-size-5 publication-authors">
             <!-- <span class="author-block">
               <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
@@ -361,10 +361,10 @@ width: 100%;
         <h2 class="title is-3">📝 Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            3D scene perception and understanding are critical for robots to interact effectively with complex environments. Traditional systems often rely on closed vocabularies and are constrained by pre-defined object categories, therefore limiting flexibility and adaptability.  
+            To plan and execute robotics tasks, 3D scene perception and understanding are critical for robots to effectively interact with complex environments. Traditional systems often rely on closed vocabularies and are constrained by pre-defined object categories, which limit their flexibility. 
           </p>
           <p>
-            In this paper, we propose Open3DSP, an open-vocabulary 3D scene perception and generation model that leverages pre-trained foundation models to support robotic scene understanding, and further provide spatial and environmental details that help in task planning. Besides, it allows the robot to grasp not only the geometric characteristics of spaces but also their functional properties, assisting the execution of complex tasks in an unstructured environment. We validate the effectiveness of our framework through comprehensive experiments, it demonstrates an improvement in mAcc and F-mIoU while reducing the time spent on class calculations. Additionally, it enables the robot to handle complex environments for inferential tasks without requiring extensive retraining or manual annotation.
+            In this paper, we propose 3DS-Plan, an open-vocabulary 3D scene perception and generation model designed to facilitate long-horizon task planning. It leverages the pre-trained foundation models to support robotic scene understanding, and further provide environmental details to infer actionable steps in various scenarios. We validate the effectiveness of our framework through comprehensive experiments. It demonstrates a 31.41\% improvement in computational efficiency for class operations, and at least a 12.74\% increase in success rates for complex tasks, without requiring extensive retraining or extra annotation. The corresponding project page is available at https://techpage.github.io/open3dsp/.
           </p>
         </div>
       </div>
@@ -376,7 +376,7 @@ width: 100%;
       <div class="column is-four-fifths">
         <h2 class="title is-3">📹 Youtube Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/tqqYs6cx1Zo?rel=0&amp;showinfo=0"
+          <iframe src="https://www.youtube.com/embed/1lKgdP_LOj8?rel=0&amp;showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
@@ -434,7 +434,7 @@ width: 100%;
         <h3 class="title is-4">📖 System Overview</h3>
         <div class="content has-text-justified">
           <p>
-            We introduce the Open3DSP framework, a novel open-vocabulary 3D scene perception and generation model designed to enhance robotic task planning. This framework integrates pre-trained visual language models, enabling robust and versatile scene understanding in a zero-shot learning setup. In addition, the generated representation of the 3D scene can further provide spatial and environmental details that help in task execution.
+            We introduce the 3DS-Plan framework, a novel open-vocabulary 3D scene perception and generation model designed to enhance robotic task planning. This framework integrates pre-trained visual language models, enabling robust and versatile scene understanding in a zero-shot learning setup. In addition, the generated representation of the 3D scene can further provide spatial and environmental details that help in task execution.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
@@ -465,13 +465,13 @@ width: 100%;
         <h3 class="title is-4">📖 Contribution</h3>
         <div class="content has-text-justified">
           <p>
-            💫 Utilization of perceived information in 3D scene generation for robot task planning:  we propose Open3DSP, a framework for open-vocabulary 3D scene perception and generation with pre-trained language model that enable further task-specific action.
+            💫 We introduce 3DS-Plan, a system that enables task planning and execution based on the perceived environment, without relying on ground truth or predefined maps.
           </p>
           <p>
-            💫 Open3DSP leverages the common-sense knowledge embedded in large language models and detection labels to refine instance feature, and further validates the effectiveness in 3D scene generation.
+            💫 Our system integrates LLM-driven reasoning and common-sense knowledge to generate logical inferences and formulate task plans with actionable steps for execution, which can perform long action sequence tasks.
           </p>
           <p>
-            💫 We introduce a pipeline to handle inferential tasks within 3D scene, and enable the robot to operate in unstructured environments, it also shows versatility in 3D scene construction and application.
+            💫 We demonstrate the effectiveness of our approach through extensive experiments. Our results show improvements in 3D scene generation and success rates for various task types, which validate its applicability in task execution scenarios.
           </p>
         </div>
         <br/>
@@ -486,7 +486,7 @@ width: 100%;
         </div>
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-centered has-text-centered">
-            <img src="./static/images/map_generation.png"
+            <img src="./static/images/pipeline.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
           </div>
@@ -524,11 +524,11 @@ width: 100%;
       <div class="column is-full-width">
         <h2 class="title is-3">🔍 Experiment</h2>
 
-        <!-- Interpolating. -->
-        <h3 class="title is-4">📖 Open3DSP for Open-vocabulary 3D Scene Understanding</h3>
+        <!-- Interpolating.  query content --> 
+        <!-- <h3 class="title is-4">📖 3DS-Plan for Open-vocabulary 3D Scene Understanding</h3>
         <div class="content has-text-justified">
           <p>
-            We further delve into the utilization of Open3DSP for 3D scene understanding and instance identification from different query perspectives to demonstrate its utility. These queries allow for a diverse analysis of the various elements and their functions.
+            We further delve into the utilization of 3DS-Plan for 3D scene understanding and instance identification from different query perspectives to demonstrate its utility. These queries allow for a diverse analysis of the various elements and their functions.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
@@ -537,30 +537,52 @@ width: 100%;
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
           </div>
-          <!-- <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div> -->
-          <!-- <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
+        </div>
+        <br/> -->
+
+        <!-- Interpolating. true data -->
+        <!-- <h3 class="title is-4">📖 Real-World Data for Scene Construction</h3>
+        <div class="content has-text-justified">
+          <p>
+            We have also collected real-world data to reconstruct the environment. It illustrates the results of a scene captured from a realistic environment and processed using 3DS-Plan, which can be perceived with various models such as YOLO, detic to identify objects within the scene.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-centered has-text-centered">
+            <img src="./static/images/real_data.png"
                  class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div> -->
+                 alt="Interpolate start reference image."/>
+          </div>
+        </div>
+        <br/> -->
+
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">📖 3DS-Plan for Task Planning</h3>
+        <div class="content has-text-justified">
+          <p>
+            We conducted our experiments with the AI2-THOR environment and the GPT-3.5 model. A variety of rooms, including kitchens, living rooms, and bedrooms, were selected. We also analyzed the success rates for different task types.
+          </p>
+          <p>
+            In addition, the result also indicates that as the stride increases (thereby reducing environmental data density), the constructed scene becomes less complete, which negatively impacts the success rates across different tasks (complex tasks such as "clean_cool" and ""heat\_cold" show a significant drop in performance with larger strides). It suggests that denser scene construction is critical for tasks requiring higher action complexity.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-centered has-text-centered">
+            <img src="./static/images/success_rates_length_plot.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          </div>
         </div>
         <br/>
-        <!--/ Interpolating. -->
+
 
 
         <!-- Utilization. -->
-        <h3 class="title is-4">📖 3D Scene Generation for Task Planning </h3>
+        <h3 class="title is-4">📖 Demonstration of the Framework for Task Planning </h3>
         <div class="content has-text-justified">
           <p>
-            We also generate the corresponding scene instance with Open3DSP for the agent, and therefore constitute the environmental foundation for further task planning.
+            We also generate the corresponding scene instance with 3DS-Plan for the agent, and therefore constitute the environmental foundation for further task planning.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
@@ -576,7 +598,7 @@ width: 100%;
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-centered has-text-centered">
             <p>
-              🏷️ Task planning for "Put a heated tomato in the fridge". It requires the agent to find a tomato, heat it in a microwave, and then place it into a specified object. The figure (a) illustrates a successful task planning case, while in figure (b) and figure (c), it doesn't plan out the correct steps due to weaker model. It also shows that our Open3DSP can provide an environmental foundation for task planning.
+              🏷️ Task planning for "Put a heated tomato in the fridge". It requires the agent to find a tomato, heat it in a microwave, and then place it into a specified object. The figure (a) illustrates a successful task planning case, while in figure (b) and figure (c), it doesn't plan out the correct steps due to weaker model. It also shows that our 3DS-Plan can provide an environmental foundation for task planning.
             </p>
             <img src="./static/images/tomato.png"
                  class="interpolation-image"
@@ -639,7 +661,7 @@ width: 100%;
         <h3 class="title is-4">📽️ Video</h3>
         <div class="content has-text-justified">
           <!-- <p>
-            Using <span class="dnerf">Open3DSP</span> Perception for Robotic Task Planning.
+            Using <span class="dnerf">3DS-Plan</span> Perception for Robotic Task Planning.
           </p> -->
         </div>
         <div class="content has-text-centered">
@@ -649,7 +671,7 @@ width: 100%;
                  preload
                  playsinline
                  width="75%">
-            <source src="./static/videos/video_compress.mp4"
+            <source src="./static/video.mp4"
                     type="video/mp4">
           </video>
         </div>

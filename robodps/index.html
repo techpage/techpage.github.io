@@ -572,7 +572,7 @@ Manipulation and Dynamic Task Scheduling</h1>
           <!-- Visual Effects. -->
           <div class="column">
             <div class="content">
-              <h3 class="title is-3">Simulation</h3>
+              <h3 class="title is-3">📖 Simulation</h3>
               <h4 class="title is-4">➡️ Mainboard Task</h4>
               <p>
                 When trained solely on <i>maninboard</i> 1, the model can generalize to unseen <i>mainboard</i> 2 and 3, with success rates of 0.45 and 0.35, respectively, after 300 epochs. However, the model fails to manipulate the wooden board, as its appearance closely resembles that of the box placed nearby. This similarity in visual features between the manipulated object and the placed object has misinterpret the scene, and thus being unable to perform the task accurately. By incorporating additional training data from the <i>mainboard</i> 3, the model achieves a success rate of 45% on wooden board, demonstrating that mixed training data can improve generalization across different objects.
@@ -674,31 +674,42 @@ Manipulation and Dynamic Task Scheduling</h1>
 
 
 
-
-
-
-
-
-
-        <!-- Interpolating. -->
-        <h2 class="title is-2">📖 Real-World Manipulation</h2>
-        <h3 class="title is-3">➡️ TODO </h3>
-        <div class="content has-text-justified">
-          <p>
-            <!-- We conducted our experiments with the AI2-THOR environment and the GPT-3.5 model. A variety of rooms, including kitchens, living rooms, and bedrooms, were selected. We also analyzed the success rates for different task types. -->
-          </p>
-          <p>
-            <!-- In addition, the result also indicates that as the stride increases (thereby reducing environmental data density), the constructed scene becomes less complete, which negatively impacts the success rates across different tasks (complex tasks such as "clean_cool" and "heat_cold" show a significant drop in performance with larger strides). It suggests that denser scene construction is critical for tasks requiring higher action complexity. -->
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-centered has-text-centered">
-            <img src="./static/images/sr.png"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content">
+              <h3 class="title is-3">📖 Real-World Manipulation</h3>
+              <h4 class="title is-4">➡️ Put the Candies of Different Colors into the Box</h4>
+              <p>
+                The data retrieved from the RoboDPS can be used for further training. In this section, to illustrate the utilization of RoboDPS, we provide an application example in a real-world environment.
+              </p>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/real/r.mp4"
+                        type="video/mp4">
+              </video>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/real/p.mp4"
+                        type="video/mp4">
+              </video>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/real/y.mp4"
+                        type="video/mp4">
+              </video>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/real/r1.mp4"
+                        type="video/mp4">
+              </video>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/real/y1.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
           </div>
-        </div>
-        <br/>
+
+
+
+
+
+   
 
 
 

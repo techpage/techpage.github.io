@@ -384,16 +384,63 @@ Manipulation and Dynamic Task Scheduling</h1>
     <!--/ Abstract. -->
 
 <!-- youtube链接 -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-2">📹 YouTube Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/~kKDDeaSPpYE?rel=0&amp;showinfo=0"
+          <iframe src="https://www.youtube.com/embed/yzqX6BTbmwQ?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <h2 class="title is-2">📹 Data Platform Clip</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/miIClEE_Ing?rel=0&amp;showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+
+        <!-- 本地视频 -->
+        <!-- Re-rendering. -->
+        <h2 class="title is-2">📽️ RoboDPS Video</h2>
+        <div class="content has-text-justified">
+          <!-- <p>
+            Using <span class="dnerf">3DS-Plan</span> Perception for Robotic Task Planning.
+          </p> -->
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/video_git.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <h2 class="title is-2">📽️ Data Platform Clip</h2>
+        <div class="content has-text-justified">
+          <!-- <p>
+            Using <span class="dnerf">3DS-Plan</span> Perception for Robotic Task Planning.
+          </p> -->
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/clip_git.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Re-rendering. -->
+        <!--/ 本地视频 -->
+      </div>
+    </div>
 </section>
 
 
@@ -477,13 +524,13 @@ Manipulation and Dynamic Task Scheduling</h1>
         <h3 class="title is-3">📖 Contribution</h3>
         <div class="content has-text-justified">
           <p>
-            💫 To address the challenges of managing multi-source heterogeneous data, we introduce a unified data platform with support for flexible and customizable data. This enables efficient storage and parsing of embodied robot data while mitigating the complexity caused by non-uniform data structures.
+            💫 To address the challenges of managing multi-source heterogeneous data, we introduce a unified robot data platform with support for flexible and customizable data. This enables efficient storage and parsing of embodied robot data while mitigating the complexity caused by non-uniform data structures.
           </p>
           <p>
-            💫 The platform supports multiple retrieval ways and provides an intuitive visualization interface, allowing users to effectively extract relevant data through query statements.
+            💫 The platform supports multiple retrieval ways and provides an intuitive visualization interface, allowing users to effectively extract relevant data through query statements, thereby enhancing task performance.
           </p>
           <p>
-            💫 By constructing a robot "data platform - policy generation - task scheduling" pipeline, we demonstrate the application of the data platform in task manipulation, and introduce a dynamic task scheduling solution.
+            💫 Taking the task success rate into consideration, we introduce a dynamic task scheduling framework that incorporates fault-tolerant re-planning, which achieves a time saving of 1.18x - 1.42x. Furthermore, by constructing a robot \textit{data platform - policy generation - task scheduling} pipeline, we demonstrate the application of the data platform in task manipulation.
           </p>
         </div>
         <br/>
@@ -534,7 +581,7 @@ Manipulation and Dynamic Task Scheduling</h1>
     <!-- Experiment. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-2">🔍 Experiment</h2>
+        <h2 class="title is-2">🔍 Application of RoboDPS for Robot Manipulation</h2>
 
         <!-- Interpolating.  query content --> 
         <!-- <h3 class="title is-4">📖 3DS-Plan for Open-vocabulary 3D Scene Understanding</h3>
@@ -678,11 +725,11 @@ Manipulation and Dynamic Task Scheduling</h1>
           <div class="column">
             <div class="content">
               <h3 class="title is-3">📖 Real-World Manipulation</h3>
-              <h4 class="title is-4">➡️ Put the Candies of Different Colors into the Box</h4>
               <p>
                 The data retrieved from the RoboDPS can be used for further training. In this section, to illustrate the utilization of RoboDPS, we provide an application example in a real-world environment.
               </p>
-              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+              <h4 class="title is-4">➡️ Put Candies of Different Colors into the Box</h4>
+              <!-- <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
                 <source src="./static/videos/real/r.mp4"
                         type="video/mp4">
               </video>
@@ -693,24 +740,82 @@ Manipulation and Dynamic Task Scheduling</h1>
               <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
                 <source src="./static/videos/real/y.mp4"
                         type="video/mp4">
-              </video>
-              <h4 class="title is-4">➡️ Put the Candies into the plate</h4>
-              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+              </video> -->
+              <section class="section">
+                <div class="container is-max-desktop">
+                <div class="column">
+                <div class="content">
+              <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 2em;">
+                <div style="display: flex; justify-content: space-around; align-items: center;margin-bottom: 2em; width: 100%;">
+                  <div style="display: flex; justify-content: space-around; align-items: center;width: 100%;">
+                    <div style="text-align: center; width: 100%;">
+                        <video controls autoplay muted loop style="width: 100%;">
+                            <source src="./static/videos/real/r.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                  </div>
+                  <div style="display: flex; justify-content: space-around; align-items: center;width: 100%;">
+                    <div style="text-align: center; width: 100%;">
+                        <video controls autoplay muted loop style="width: 100%;">
+                            <source src="./static/videos/real/p.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                  </div>
+                  <div style="display: flex; justify-content: space-around; align-items: center;width: 100%;">
+                    <div style="text-align: center; width: 100%;">
+                        <video controls autoplay muted loop style="width: 100%;">
+                            <source src="./static/videos/real/y.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </div>
+              </section>
+              <h4 class="title is-4">➡️ Put Candies into the plate</h4>
+              <!-- <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
                 <source src="./static/videos/real/r1.mp4"
                         type="video/mp4">
               </video>
               <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
                 <source src="./static/videos/real/y1.mp4"
                         type="video/mp4">
-              </video>
+              </video> -->
+              <section class="section">
+                <div class="container is-max-desktop">
+                <div class="column">
+                <div class="content">
+              <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 2em;">
+                <div style="display: flex; justify-content: space-around; align-items: center;margin-bottom: 2em; width: 100%;">
+                  <div style="display: flex; justify-content: space-around; align-items: center;width: 100%;">
+                    <div style="text-align: center; width: 100%;">
+                        <video controls autoplay muted loop style="width: 100%;">
+                            <source src="./static/videos/real/r1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                  </div>
+                  <div style="display: flex; justify-content: space-around; align-items: center;width: 100%;">
+                    <div style="text-align: center; width: 100%;">
+                        <video controls autoplay muted loop style="width: 100%;">
+                            <source src="./static/videos/real/y1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </div>
+              </section>
             </div>
           </div>
 
 
-
-
-
-   
 
 
 
@@ -792,31 +897,7 @@ Manipulation and Dynamic Task Scheduling</h1>
 
 
 
-        <!-- 本地视频 -->
-        <!-- Re-rendering. -->
-        <h3 class="title is-3">📽️ Video</h3>
-        <div class="content has-text-justified">
-          <!-- <p>
-            Using <span class="dnerf">3DS-Plan</span> Perception for Robotic Task Planning.
-          </p> -->
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/video.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-        <!--/ 本地视频 -->
 
-      </div>
-    </div>
-    <!--/ Animation. -->
 
 
     <!-- Concurrent Work. -->

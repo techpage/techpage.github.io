@@ -32,18 +32,13 @@ _Note:_
 ---
 
 
-# Data Platform Demo: Documentation on How to Use the Data Platform Website
+# Documentation on How to Use the Data Platform Website (Data Platform Demo)
 
 
 
 
 
   - [1. Check the data dashboard to determine the data production strategy](#1-check-the-data-dashboard-to-determine-the-data-production-strategy)
-    - [Dataset Overview:](#dataset-overview)
-    - [Production Monitor:](#production-monitor)
-    - [Episode Length Distribution:](#episode-length-distribution)
-    - [Task Distribution:](#task-distribution)
-    - [Object Distribution:](#object-distribution)
   - [2. Data Generation](#2-data-generation)
   - [3. Data Visualization](#3-data-visualization)
   - [4. Data Retrieval](#4-data-retrieval)

@@ -1,4 +1,4 @@
-**Please download [here](https://github.com/techpage/techpage.github.io/raw/4a2099cf9f6e772ffa6df96b39d9841b610a0138/robodps/website_document.docx) to get this document.**
+**Please click [here](https://github.com/techpage/techpage.github.io/raw/4a2099cf9f6e772ffa6df96b39d9841b610a0138/robodps/website_document.docx) to download the document for clearer image display.**
 
 # Trial accounts for some features
 

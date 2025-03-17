@@ -1,3 +1,8 @@
+> ▶️ We have now provided **trial accounts** of the website for some features as we continue deploying the public version of the robot data platform. 
+>
+> ▶️ In addition to the website, a _virtual machine_ deployment option will also be available once the setup is complete, allowing users to **deploy the RoboDPS locally**.
+
+
 **Please click [here](https://github.com/techpage/techpage.github.io/raw/4a2099cf9f6e772ffa6df96b39d9841b610a0138/robodps/website_document.docx) to download the document for clearer image display.**
 
 # Trial accounts for some features

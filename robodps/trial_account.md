@@ -50,7 +50,7 @@ _Note:_
 
 ## 1. Check the data dashboard to determine the data production strategy  
 
-Open the browser and go [here](http://8.152.212.170:27019/public/dashboard/6667a609-a8df4b01-9c46-8a942440788d) to access the data dashboard.  
+Open the browser and go to http://8.152.212.170:27019/public/dashboard/6667a609-a8df4b01-9c46-8a942440788d to access the data dashboard.  
 
 ![](images/931d0064735b7b0e9dac1f9deed76924ed82c3ae7ee9d5ff35b29459b960d97d.jpg)  
 

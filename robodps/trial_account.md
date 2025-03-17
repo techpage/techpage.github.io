@@ -1,7 +1,9 @@
+Please download [here](https://github.com/techpage/techpage.github.io/raw/4a2099cf9f6e772ffa6df96b39d9841b610a0138/robodps/website_document.docx) to get this document.
+
 # Trial accounts for some features
 
 _Note:_
-- _If the webpage does not respond when logging in, please try using a different browser (e.g., Safari)._
+- _If the webpage does not respond when logging in, please try using a different browser._
 - _You can switch languages (EN/CN) from the top right corner of the webpage._
 
 **Address**：http://8.152.212.170:27021/
@@ -33,8 +35,6 @@ _Note:_
 
 
 # Documentation on How to Use the Data Platform Website (Data Platform Demo)
-
-
 
 
 

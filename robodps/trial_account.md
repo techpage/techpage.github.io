@@ -1,17 +1,17 @@
-> ▶️ We have now provided **trial accounts** of the website for some features as we continue deploying the public version of the robot data platform. 
+<!-- > ▶️ We have now provided **trial accounts** of the website for some features as we continue deploying the public version of the robot data platform. 
 >
-> ▶️ In addition to the website, a _virtual machine_ deployment option will also be available once the setup is complete, allowing users to **deploy the RoboDPS locally**.
+> ▶️ In addition to the website, a _virtual machine_ deployment option will also be available once the setup is complete, allowing users to **deploy the RoboDPS locally**. -->
 
 
-**Please click [here](https://github.com/techpage/techpage.github.io/raw/4a2099cf9f6e772ffa6df96b39d9841b610a0138/robodps/website_document.docx) to download the document for clearer image display.**
+<!-- **Please click [here](https://github.com/techpage/techpage.github.io/raw/4a2099cf9f6e772ffa6df96b39d9841b610a0138/robodps/website_document.docx) to download the document for clearer image display.** -->
 
 # Trial accounts for some features
 
-_Note:_
+<!-- _Note:_
 - _If the webpage does not respond when logging in, please try using a different browser._
-- _You can switch languages (EN/CN) from the top right corner of the webpage._
+- _You can switch languages (EN/CN) from the top right corner of the webpage._ -->
 
-**Address**：http://8.152.212.170:27021/
+~~**Address**：http://8.152.212.170:27021/~~
 
 **Account：**
 
@@ -43,7 +43,14 @@ _Note:_
 
 
 
+- [Trial accounts for some features](#trial-accounts-for-some-features)
+- [Documentation on How to Use the Data Platform Website (Data Platform Demo)](#documentation-on-how-to-use-the-data-platform-website-data-platform-demo)
   - [1. Check the data dashboard to determine the data production strategy](#1-check-the-data-dashboard-to-determine-the-data-production-strategy)
+    - [Dataset Overview:](#dataset-overview)
+    - [Production Monitor:](#production-monitor)
+    - [Episode Length Distribution:](#episode-length-distribution)
+    - [Task Distribution:](#task-distribution)
+    - [Object Distribution:](#object-distribution)
   - [2. Data Generation](#2-data-generation)
   - [3. Data Visualization](#3-data-visualization)
   - [4. Data Retrieval](#4-data-retrieval)
@@ -55,7 +62,7 @@ _Note:_
 
 ## 1. Check the data dashboard to determine the data production strategy  
 
-Open the browser and go [here](http://8.152.212.170:27019/public/dashboard/6667a609-a8df-4b01-9c46-8a942440788d) (if it is not displaying correctly, please refresh the browser) to access the data dashboard.  
+Open the browser and go ~~[here](http://8.152.212.170:27019/public/dashboard/6667a609-a8df-4b01-9c46-8a942440788d) (if it is not displaying correctly, please refresh the browser)~~ to access the data dashboard.  
 
 ![](images/931d0064735b7b0e9dac1f9deed76924ed82c3ae7ee9d5ff35b29459b960d97d.jpg)  
 
@@ -98,7 +105,7 @@ The **plug_factory** task type has relatively little data. Next, we'll use it as
 
 To generate data on the platform, follow these steps:  
 
-1. Open the browser and go to http://8.152.212.170:27021/#/dashboard. Enter your username and password to access the data platform's homepage.  
+1. Open the browser and go to ~~http://8.152.212.170:27021/#/dashboard~~. Enter your username and password to access the data platform's homepage.  
 
 ![](images/1a96dd86e818252d9d67689c773e8f579c43cdd10e54bda07f6e900b1478c0b8.jpg)  
 

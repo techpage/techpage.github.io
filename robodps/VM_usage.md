@@ -7,7 +7,6 @@
 - [4. Accessing the Virtual Machine and Using the Data Platform](#4-accessing-the-virtual-machine-and-using-the-data-platform)
 
 
-
 # 1. Installing VirtualBox  
 
 To get started, download and install VirtualBox by following the official documentation: https://www.virtualbox.org/manual/topics/Introduction.html#intro-installing. Make sure to choose the correct version for your operating system.  

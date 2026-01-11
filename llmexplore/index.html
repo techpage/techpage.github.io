@@ -267,17 +267,27 @@
     <!--/ Abstract. -->
 
 <!-- youtube链接 -->
-    <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">YouTube Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/9bkb7ZoAaUQ?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <h2 class="title is-3">Video</h2>
+        <div class="content has-text-justified">
+          <p>
+            Using <span class="dnerf">EN-LLM</span>, robots can explore the environment with lauguage model.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/EN-LLM_10MB.mp4"
+                    type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
@@ -411,26 +421,6 @@
 
 
 
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">EN-LLM</span>, robots can explore the environment with lauguage model.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/video_compress.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
 
       </div>
     </div>

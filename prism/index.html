@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="PRISM: Prior-informed Robotic Imitation Learning with Structured Motion Augmentation for Geometrically Constrained Manipulation">
+  <meta name="keywords" content="Robot Learning, Geometric Constraints, Single Demonstration Learning, Motion Capture, Imitation Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PRISM: Prior-informed Robotic Imitation Learning</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<style>
+  .section {
+    margin-bottom: -30px;
+  }
+
+  .rainbow-text {
+    background: linear-gradient(to right, rgb(255, 53, 201), rgb(18, 227, 250), rgb(255, 53, 201));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-weight: bold;
+    animation: rainbow-flow 3s linear infinite;
+    text-shadow: 0 0 30px rgba(255, 53, 201, 0.5);
+    filter: drop-shadow(0 0 20px rgba(18, 227, 250, 0.3));
+  }
+
+  @keyframes rainbow-flow {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  @keyframes rainbow-shift {
+    0%, 100% {
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      filter: hue-rotate(20deg);
+    }
+  }
+
+  .hero-image {
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-image:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(50, 115, 220, 0.3);
+  }
+
+  .section-divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #3273dc, transparent);
+    margin: 3em 0;
+    opacity: 0.3;
+  }
+
+  .title.is-2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    margin-bottom: 2rem !important;
+  }
+
+  .title.is-2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, rgb(255, 53, 201), rgb(18, 227, 250));
+    border-radius: 2px;
+  }
+
+  .content.has-text-justified p {
+    line-height: 1.8;
+    color: #4a4a4a;
+    text-align: justify;
+  }
+
+  .content-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .content-card:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+  }
+
+  .task-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .task-item {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .task-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .task-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  .comparison-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .comparison-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .stats-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0.5rem;
+  }
+
+  .stats-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+  }
+
+  .stats-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .section {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 返回顶部按钮 */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: none;
+    font-size: 1.5rem;
+  }
+
+  .back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+  }
+
+  .back-to-top.show {
+    display: flex;
+  }
+
+  .button.is-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .button.is-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .task-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<body>
+
+<!-- 返回顶部按钮 -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#abstract">
+        <span class="icon"><i class="fas fa-file-alt"></i></span>
+        <span>Abstract</span>
+      </a>
+      <a class="navbar-item" href="#method">
+        <span class="icon"><i class="fas fa-cogs"></i></span>
+        <span>Method</span>
+      </a>
+      <a class="navbar-item" href="#results">
+        <span class="icon"><i class="fas fa-chart-bar"></i></span>
+        <span>Results</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="rainbow-text">PRISM: Prior-informed Robotic Imitation Learning with Structured Motion Augmentation For Geometrically Constrained Manipulation</span>
+          </h1>
+
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-primary">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-primary">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-primary">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (Coming Soon)</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Illustration -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <p style="text-align:center;">
+      <img src="./static/images/illustration2.png" class="hero-image" style="width: 100%; max-width: 500px;" alt="PRISM Framework Overview" />
+    </p>
+    <p class="has-text-centered" style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+      Illustration of geometrically constrained tasks. Unlike simple grasping, these tasks require the robot to control its motion along a specific path, such as painting or polishing.
+    </p>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-2">📄 Abstract</h2>
+        <div class="content has-text-justified content-card">
+          <p>
+            Learning robust robot manipulation policies from limited demonstrations remains a significant challenge, particularly for geometrically constrained tasks that require maintaining consistent spatial relationships. While data augmentation techniques have shown promise in improving policy generalization, the acquisition of diverse, high-quality datasets remains a primary bottleneck in data-driven robotics. In this paper, we present PRISM (Prior-informed robotic imitation learning with structured motion augmentation), a lightweight framework that systematically expands a single demonstration into a diverse and feasible dataset for geometrically constrained manipulation tasks. We use motion capture to acquire kinematic priors, apply saliency-guided kinematic refinement to remove redundant motion phases, and generate diverse trajectory variants that preserve geometric relationships. We evaluate PRISM in multiple manipulation scenarios and demonstrate that it achieves near-instantaneous prototype trajectory acquisition and efficient scalability to large datasets, while maintaining competitive policy performance. These results confirm that PRISM is a practical solution for single-demonstration robot learning tasks where rapid data generation and geometric constraint preservation are prioritized. The corresponding project page is available at <a href="https://techpage.github.io/prism/" target="_blank">https://techpage.github.io/prism/</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<!-- Video -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 has-text-centered">🎥 Video</h2>
+    <div class="content-card">
+      <div class="publication-video">
+        <video controls style="width: 100%; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.15);">
+          <source src="./static/videos/video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<!-- Key Points -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 has-text-centered">✨ Key Points</h2>
+    <div class="columns is-multiline">
+      <div class="column is-12">
+        <div class="content-card">
+          <h3 class="title is-4">🎯 1. Kinematic-Prior-Driven Paradigm</h3>
+          <p>We present a kinematic-prior-driven data generation paradigm that directly operates within the feasible constraint space of tasks, ensuring both physical plausibility and scalability.</p>
+        </div>
+      </div>
+      <div class="column is-12">
+        <div class="content-card">
+          <h3 class="title is-4">🔄 2. Structured Augmentation Mechanism</h3>
+          <p>We propose a structured mechanism that transforms a single demonstration into a diverse dataset by aligning the task space and applying transformations to preserve geometric consistency.</p>
+        </div>
+      </div>
+      <div class="column is-12">
+        <div class="content-card">
+          <h3 class="title is-4">📊 3. Extensive Validation</h3>
+          <p>We validate our approach through extensive experiments on multiple robotic geometric tasks to demonstrate enhanced data efficiency and generalization compared to other methods.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<!-- Method Overview -->
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 has-text-centered">⚙️ Method Overview</h2>
+    <p style="text-align:center; margin-bottom: 2rem;">
+      <img src="./static/images/overview_M.png" class="hero-image" style="width: 100%; max-width: 1000px;" alt="PRISM Method Overview" />
+    </p>
+    <p class="has-text-centered" style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+      Overview of the PRISM framework showing the pipeline from motion capture to policy training.
+    </p>
+    
+    <div class="content has-text-justified" style="margin-top: 2rem;">
+      <p>
+        PRISM consists of three main components:
+      </p>
+      <ol>
+        <li><strong>Kinematic Prior Acquisition:</strong> Use motion capture to directly record high-precision demonstrations, capturing the continuous and nuanced motion in real-time.</li>
+        <li><strong>Saliency-Guided Refinement:</strong> Apply keyframe selection to compress dense trajectories into compact kinematic priors by retaining dynamically and geometrically informative frames.</li>
+        <li><strong>Structured Augmentation:</strong> Generate diverse trajectory variants through similarity group transformations (Sim(3)) that preserve geometric relationships while exploring the feasible set.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<!-- Experimental Tasks -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 has-text-centered">🤖 Experimental Tasks</h2>
+    <p class="has-text-centered" style="margin-bottom: 2rem; font-size: 1.1rem;">
+      We evaluate PRISM on four geometrically diverse manipulation scenarios
+    </p>
+    
+    <div class="task-grid">
+      <div class="task-item">
+        <img src="./static/images/i.png" alt="Task I" />
+        <p class="title is-5">Task I</p>
+        <p class="subtitle is-6">Linear Path</p>
+      </div>
+      <div class="task-item">
+        <img src="./static/images/d.png" alt="Task D" />
+        <p class="title is-5">Task D</p>
+        <p class="subtitle is-6">D-Shaped Path</p>
+      </div>
+      <div class="task-item">
+        <img src="./static/images/o.png" alt="Task O" />
+        <p class="title is-5">Task O</p>
+        <p class="subtitle is-6">Circular Path</p>
+      </div>
+      <div class="task-item">
+        <img src="./static/images/s.png" alt="Task S" />
+        <p class="title is-5">Task S</p>
+        <p class="subtitle is-6">S-Shaped Path</p>
+      </div>
+    </div>
+    
+    <p class="has-text-centered" style="margin-top: 1rem; color: #666;">
+      These tasks require the robot to trace letter-shaped constraint paths, maintaining precise geometric relationships throughout the motion.
+    </p>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 has-text-centered">📈 Results</h2>
+    
+    <!-- Data Generation Efficiency -->
+    <div class="content-card" style="margin-bottom: 2rem;">
+      <h3 class="title is-3">⚡ Data Generation Efficiency</h3>
+      <p style="text-align:center;">
+        <img src="./static/images/generation_time_500_1000.png" style="width: 100%; max-width: 1000px; border-radius: 10px;" alt="Data Generation Performance" />
+      </p>
+      <p class="has-text-centered" style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+        Comprehensive comparison of data generation performance and scalability. Our method consistently maintains the lowest time cost across all scenarios.
+      </p>
+      
+      <div class="columns" style="margin-top: 2rem;">
+        <div class="column">
+          <div class="stats-box">
+            <span class="stats-number">~3s</span>
+            <span class="stats-label">Initial Trajectory Acquisition</span>
+          </div>
+        </div>
+        <div class="column">
+          <div class="stats-box">
+            <span class="stats-number">691-964s</span>
+            <span class="stats-label">Generate 500 Trajectories</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content" style="margin-top: 1.5rem;">
+        <p><strong>Key Findings:</strong></p>
+        <ul>
+          <li>Near-instantaneous acquisition (~3 seconds) via motion capture</li>
+          <li>Excellent scalability with automated augmentation (691-964s for 500 trajectories)</li>
+          <li>Significantly outperforms manual teleoperation and motion planning in both initial cost and scalability</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Cross-task Generalization -->
+    <div class="content-card" style="margin-bottom: 2rem;">
+      <h3 class="title is-3">🔀 Cross-Task Generalization</h3>
+      <p style="text-align:center;">
+        <img src="./static/images/iod.png" style="width: 100%; max-width: 700px; border-radius: 10px;" alt="Cross-task Generalization" />
+      </p>
+      <p class="has-text-centered" style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+        Policy trained on I and O scenarios generalizes to the unseen D scenario with 77% success rate.
+      </p>
+      <div class="content" style="margin-top: 1rem;">
+        <p>
+          By training on structured geometric augmentations, the policy learns a representation of "constraint following" rather than just specific shapes, demonstrating generalization capabilities to unseen geometric constraints.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Contact-Rich Tasks -->
+    <div class="content-card">
+      <h3 class="title is-3">🔧 Contact-Rich Tasks</h3>
+      <p style="text-align:center;">
+        <img src="./static/images/peg_ring.png" style="width: 100%; max-width: 900px; border-radius: 10px;" alt="Contact-Rich Tasks" />
+      </p>
+      <p class="has-text-centered" style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+        PRISM extends to contact-rich scenarios: peg insertion (71% success) and ring-on-rod (84% success).
+      </p>
+      <div class="content" style="margin-top: 1rem;">
+        <p>
+          PRISM successfully handles tasks with both geometric and contact constraints, validating its applicability beyond simple path-following scenarios.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<!-- Real-World Deployment -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 has-text-centered">🌍 Real-World Deployment</h2>
+    <div class="content-card">
+      <p style="text-align:center;">
+        <img src="./static/images/real_o.png" style="width: 100%; max-width: 700px; border-radius: 10px;" alt="Real-World Deployment" />
+      </p>
+      <p class="has-text-centered" style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+        Real-world deployment on Franka Panda robot executing circular path (O scenario).
+      </p>
+      <div class="content" style="margin-top: 1.5rem;">
+        <p>
+          We successfully deployed PRISM-trained policies on a real Franka Panda robot, confirming the framework's practical applicability. The robot maintains task reliability across diverse geometric constraints with competitive success rates in real-world scenarios.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<!-- Conclusion -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 has-text-centered">💡 Conclusion</h2>
+    <div class="content-card">
+      <div class="content has-text-justified">
+        <p>
+          We introduced PRISM, a lightweight framework to learn geometrically constrained manipulation policies from a single demonstration. PRISM combines motion-capture-based kinematic priors, saliency-guided kinematic redundancy refinement, and structured trajectory augmentation to preserve task-consistent geometry while efficiently covering the feasible set. Extensive experiments in multiple manipulation scenarios showed that PRISM achieves near-instantaneous acquisition of a prototype trajectory and scales efficiently to datasets, substantially reducing the cost of data generation compared to Teleop and MP. In addition, policies trained on PRISM-generated data achieved competitive success rates across tasks.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar burger toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+
+    // 返回顶部按钮功能
+    const backToTop = document.getElementById('backToTop');
+    
+    // 监听滚动事件
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    
+    // 点击返回顶部
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

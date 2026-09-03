@@ -27,18 +27,17 @@
     <main id="top">
       <section class="hero section-space">
         <div class="shell hero-copy">
-          <h1>LayoutSpec3D: 3D Scene Generation with Structured Scene Descriptions and Asset-Aware Relation Correction</h1>
-          <p class="hero-lede">Structured scene descriptions, asset-aware geometry, and relation-preserving static rectification for text-driven 3D scene generation.</p>
-          <a class="command-link" href="assets/LayoutSpec3D.pdf" target="_blank" rel="noopener">
-            <span>Paper</span>
-          </a>
+          <h1><span class="project-title"><span class="project-title-layout">Layout</span><span class="project-title-spec">Spec3D</span></span><span class="title-separator">:</span><br class="mobile-title-break"><span class="mobile-title-line">3D Scene Generation</span><span class="mobile-title-line">with Structured Scene</span><span class="mobile-title-line">Descriptions and</span><span class="mobile-title-line">Instance-Level Asset Integration</span></h1>
+          <p class="hero-lede"><span class="mobile-lede-line">Structured scene descriptions,</span><span class="mobile-lede-line">asset-aware geometry, and</span><span class="mobile-lede-line">relation-preserving static rectification</span><span class="mobile-lede-line">for text-driven 3D scene generation.</span></p>
         </div>
       </section>
 
       <section id="abstract" class="section-space section-tint">
+        <div class="shell section-heading section-heading-centered">
+          <h2 class="section-title"><i data-lucide="file-text" aria-hidden="true"></i><span>Abstract</span></h2>
+        </div>
         <div class="shell reading-layout">
           <div class="abstract-media-wrap">
-            <p class="eyebrow">Abstract</p>
             <video class="abstract-media" autoplay muted loop playsinline preload="metadata" aria-label="Orbiting view of a generated bedroom scene">
               <source src="assets/media/bedroom-1.mp4" type="video/mp4">
               <img src="assets/media/bedroom-1.gif" alt="Orbiting view of a generated bedroom scene">
@@ -52,23 +51,24 @@
       </section>
 
       <section id="video" class="section-space section-tint">
-        <div class="shell section-heading">
-          <h2>Overview Video</h2>
+        <div class="shell section-heading section-heading-centered">
+          <h2 class="section-title"><i data-lucide="video" aria-hidden="true"></i><span>Overview Video</span></h2>
         </div>
-        <div class="shell video-placeholder" role="status" aria-label="Presentation video is coming soon">
-          <i data-lucide="clapperboard" aria-hidden="true"></i>
-          <p>Video Coming Soon</p>
+        <div class="shell overview-video-wrap">
+          <video class="overview-video" controls playsinline preload="metadata" aria-label="LayoutSpec3D overview video">
+            <source src="assets/media/overview-video.mp4" type="video/mp4">
+            Your browser does not support the overview video.
+          </video>
         </div>
       </section>
 
       <section id="method" class="section-space">
-        <div class="shell section-heading">
-          <p class="eyebrow">Method</p>
-          <h2>LayoutSpec3D Overview</h2>
+        <div class="shell section-heading section-heading-centered">
+          <h2 class="section-title"><i data-lucide="workflow" aria-hidden="true"></i><span>LayoutSpec3D Overview</span></h2>
           <p>LayoutSpec3D uses domain configurations, instance-level assets, and static constraints to construct the description, map assets, rectify geometry, and recheck relations.</p>
         </div>
         <figure class="shell figure-block figure-wide">
-          <img src="assets/figures/crossscene_overview_en.png" alt="LayoutSpec3D overview from inputs and LLM compilation to a structured scene description, asset mapping, static rectification, final 3D scene, and evaluation.">
+          <img src="assets/figures/layoutspec3d_method_overview.png" alt="LayoutSpec3D overview from text request, scene dimensions, and domain configuration through structured scene description, asset mapping, static rectification, final 3D scene, and evaluation.">
           <figcaption>Overview of LayoutSpec3D.</figcaption>
         </figure>
         <div class="shell process-list" aria-label="LayoutSpec3D stages">
@@ -79,15 +79,14 @@
           <article><span>05</span><h3>Static Rectification</h3><p>Static rectification checks support, collisions, and boundaries while preserving declared relations.</p></article>
         </div>
         <figure class="shell figure-block figure-medium">
-          <img src="assets/figures/crossscene_rectification_en.png" alt="Instance-level asset integration and relation-preserving static geometric rectification framework.">
+          <img src="assets/figures/layoutspec3d_asset_rectification.png" alt="Instance-level asset integration and relation-preserving static rectification framework.">
           <figcaption>Framework for instance-level asset integration and relation-preserving static geometric rectification. Initial-layout instances are bound to candidate 3D OBJ assets; the resulting records and OBJ checks supply asset geometry and mapping information for collision, boundary, and support checks, staged adjustment, and relation rechecking. Pre/post states, checks, trajectories, and movements are recorded for analysis.</figcaption>
         </figure>
       </section>
 
       <section id="evidence" class="section-space section-tint">
-        <div class="shell section-heading">
-          <p class="eyebrow">Qualitative Evidence</p>
-          <h2>Scene Visualization Examples</h2>
+        <div class="shell section-heading section-heading-centered">
+          <h2 class="section-title"><i data-lucide="image" aria-hidden="true"></i><span>Scene Visualization Examples</span></h2>
         </div>
         <div class="shell scene-examples">
           <figure>
@@ -129,9 +128,8 @@
       </section>
 
       <section id="gallery" class="section-space">
-        <div class="shell section-heading gallery-heading">
-          <p class="eyebrow">Generated Scene Gallery</p>
-          <h2>Orbiting views of generated scenes</h2>
+        <div class="shell section-heading section-heading-centered gallery-heading">
+          <h2 class="section-title"><i data-lucide="gallery-vertical-end" aria-hidden="true"></i><span>Orbiting Views of Generated Scenes</span></h2>
           <p>Browse indoor and outdoor configurations. Each clip presents a generated final scene from an orbiting camera view.</p>
         </div>
         <div class="shell filter-row" role="tablist" aria-label="Filter scene gallery">
